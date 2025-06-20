@@ -1,7 +1,7 @@
 #ifndef CONTROL_SYSTEM_P
 #define CONTROL_SYSTEM_P
 
-#include "../../Math_lite/Math_general/Math_general.h"
+#include "../../../Math_lite/src/Math_lite.h"
 
 template <typename T>
 class P_controller

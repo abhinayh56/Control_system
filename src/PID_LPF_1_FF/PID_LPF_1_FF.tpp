@@ -48,7 +48,7 @@ T PID_LPF_1_FF_controller<T>::update(T x_0, T x, T u_ff_)
     }
     else
     {
-        u_k = u_ff + (-tau * u_K_2 + (2.0 * tau + dt) * u_k_1 + ((Kp + Ki * dt) * (dt + tau) + Kd) * e_k - (Kp * (2.0 * tau + dt) + Ki * dt * tau + 2.0 * Kd) * e_k_1 + (tau + Kd) * e_K_2) / (dt + tau);
+        u_k = u_ff + (-tau * u_k_2 + (2.0 * tau + dt) * u_k_1 + ((Kp + Ki * dt) * (dt + tau) + Kd) * e_k - (Kp * (2.0 * tau + dt) + Ki * dt * tau + 2.0 * Kd) * e_k_1 + (tau + Kd) * e_k_2) / (dt + tau);
     }
     u_k = Math_general<T>::saturate(u_k, -u_max, u_max);
     u_k_2 = u_k_1;

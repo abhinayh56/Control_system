@@ -43,7 +43,7 @@ T PID_controller<T>::update(T x_0, T x)
     }
     else
     {
-        u_k = u_k_1 + (Kp + Ki * dt + Kd / dt) * e_k - (Kp + 2.0 * Kd / dt) * e_k_1 + (Kd / dt) * e_K_2;
+        u_k = u_k_1 + (Kp + Ki * dt + Kd / dt) * e_k - (Kp + 2.0 * Kd / dt) * e_k_1 + (Kd / dt) * e_k_2;
     }
     u_k = Math_general<T>::saturate(u_k, -u_max, u_max);
     u_k_1 = u_k;

@@ -1,8 +1,8 @@
 #ifndef CONTROL_SYSTEM_D_LPF_1
 #define CONTROL_SYSTEM_D_LPF_1
 
-#include "../../Constants/Constants.h"
-#include "../../Math_lite/Math_general/Math_general.h"
+#include "../../../Constants/src/Constants.h"
+#include "../../../Math_lite/src/Math_lite.h"
 
 template <typename T>
 class D_LPF_1_controller

@@ -2,8 +2,8 @@
 #define CONTROL_SYSTEM_PID_GS
 
 #include <stdint.h>
-#include "../../Math_lite/Math_general/Math_general.h"
-#include "../../Filters/LPF_1/src/LPF_1.h"
+#include "../../../Filters/src/Filters.h"
+#include "../../../Math_lite/src/Math_lite.h"
 
 template <typename T>
 class PID_GS_controller
@@ -13,7 +13,7 @@ public:
 
 	void init(T dt_, T Kp_, T Ki_, T Kd_, T I_max_, T u_max_, bool d_filter_ = false, T fc_ = 10.0);
 	void set_param(T dt_, T Kp_, T Ki_, T Kd_, T I_max_, T u_max_, bool d_filter_ = false, T fc_ = 10.0);
-	T update(T x_0, T x, T u_ff_ = 0.0, T op_cond_);
+	T update(T x_0, T x, T u_ff_ = 0.0, T op_cond_ = 0.0);
 	void reset();
 	void merge(T u_k_1_);
 	void set_gain_lookup_table(T *op_cond_arr_, T *Kp_arr_, T *Ki_arr_, T *Kd_arr_, uint16_t len_arr_);

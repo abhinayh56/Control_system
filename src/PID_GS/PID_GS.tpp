@@ -61,10 +61,10 @@ T PID_GS_controller<T>::update(T x_0, T x, T u_ff_, T op_cond_)
     }
     else
     {
-        D = Kd * (e - e_pre) / dt;
+        D = Kd * (e_k - e_k_1) / dt;
     }
 
-    if (d_filter_ == true)
+    if (d_filter == true)
     {
         lpf.cal_y(D);
         D = lpf.get_y();

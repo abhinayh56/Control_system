@@ -23,7 +23,7 @@ PID_P_controller<T>::PID_P_controller()
 template <typename T>
 void PID_P_controller<T>::init(T dt_, T Kp_, T Ki_, T Kd_, T I_max_, T u_max_, bool d_filter_, T fc_)
 {
-    set_param(dt_, Kp_, Ki_, Kd_, I_max_, u_max_, bool d_filter_, fc_);
+    set_param(dt_, Kp_, Ki_, Kd_, I_max_, u_max_, d_filter_, fc_);
     start = true;
 }
 
@@ -59,10 +59,10 @@ T PID_P_controller<T>::update(T x_0, T x, T u_ff_)
     }
     else
     {
-        D = Kd * (e - e_pre) / dt;
+        D = Kd * (e_k - e_k_1) / dt;
     }
 
-    if (d_filter_ == true)
+    if (d_filter == true)
     {
         lpf.cal_y(D);
         D = lpf.get_y();
